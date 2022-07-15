@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+
+    <title>CRO Prueba</title>
+</head>
+
+<body>
+    <main>
+
+
+
+        <section class="form">
+            <div class="bg-logo"></div>
+
+            <div class="step-row">
+                <div id="progress"></div>
+                <div class="step-col"><small>1. Tus deudas</small></div>
+                <div class="step-col"><small>2. Tus datos</small></div>
+            </div>
+
+
+            <form id="form-1">
+                <label class="ins">Tipo de deuda a negociar</label>
+                <select name="instituciones" id="instituciones" onchange="switchSelect()">
+                    <option class="left" value="none" disabled="disabled" selected="true">Seleccione una opción</option>
+                    <option class="left" value="bancos">Bancos</option>
+                    <option class="left" value="tiendas">Tiendas departamentales</option>
+                    <option class="left" value="financieras">Financieras</option>
+                </select>
+
+                <select  name="instituciones_values" id="instituciones_values">
+                    <option class="left" value="none" disabled="disabled" selected="true">Seleccione su tipo de deuda</option>
+                </select>
+
+                <label class="range">Monto aproximado de tu deuda:</label>
+                <input class="clear" type="range" id="amount" name="amount" step="10000" value="30000" min="30000" max="1000000" oninput="
+            if(value === '1000000'){
+                this.nextElementSibling.value = '$'+dollarUSLocale.format(this.value) + ' o más';
+            }else{
+                this.nextElementSibling.value = '$'+dollarUSLocale.format(this.value);
+            }
+            
+            ">
+                <output>$30 000</output>
+
+                <div class="btn-box">
+                    <button type="submit" id="next1" class="slide">Siguiente paso</button>
+                </div>
+
+            </form>
+
+            <form id="form-2">
+                <div class="name-input">
+                    <input class="clear" type="text" name="nombre" id="nombre" placeholder="Nombre(s)">
+                    <input class="clear" type="text" name="apellido_paterno" id="apellido_paterno" placeholder="Apellido paterno">
+                    <input class="clear" type="text"  name="apellido_materno" id="apellido_materno" placeholder="Apellido materno">
+                </div>
+
+                <input class="clear"  type="tel" id="phone" name="phone" placeholder="Teléfono a 10 digitos" pattern="[0-9]{10}"
+                    required>
+
+                <input class="clear" type="email" name="email" id="email" placeholder="Correo electrónico">
+                <input class="clear" type="text" name="rfc" id="rfc" placeholder="RFC">
+
+                <div class="btn-box">
+                    <button type="button" id="back1">Regresar
+                        </button>
+                </div>
+
+                <div class="btn-box">
+                    <button type="submit" id="next2" class="slide">Enviar</button>
+                </div>
+            </form>
+
+
+
+        </section>
+
+    </main>
+
+
+</body>
+
+</html>
